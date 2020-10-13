@@ -1,0 +1,38 @@
+<div class="mt-4 pt-5" *ngFor="let element of News; let i = index">
+<h2 align="center" class="mb-4"><strong>{{element.name}}</strong></h2>
+<img style="display: block; margin-left: auto; margin-right: auto; width: 50%;" src="https://skidrowcodex.co/uploads/imgtorrent/gamespc/ea/1601197490_prodeus.jpg"><br>
+
+  <div *ngIf="a == 0 || a != i+1">
+    {{element.description}}
+  <div class="btn-container">
+    <button (click)="a = i+1" id="toggle" style="display: block; margin-left: auto; margin-right: auto;" class="btn btn-outline-primary">Read More</button>
+  </div>
+    <hr style="border-top: 3px double #4285F4; " class="mt-5">
+  </div>
+
+  <div *ngIf="a == i+1">
+    {{element.descriptionFull}}
+    <div class="btn-container">
+      <button (click)="a = 0" id="toggle1" style="display: block; margin-left: auto; margin-right: auto;" class="btn btn-outline-primary">Read Less</button>
+    </div>
+      <hr style="border-top: 3px double #4285F4; " class="mt-5">
+  </div>
+</div>
+<!--
+<script>
+  $(document).ready(function() {
+    $("#toggle").click(function() {
+      var elem = $("#toggle").text();
+      if (elem == "Read More") {
+        //Stuff to do when btn is in the read more state
+        $("#toggle").text("Read Less");
+        $("#text").slideDown();
+      } else {
+        //Stuff to do when btn is in the read less state
+        $("#toggle").text("Read More");
+        $("#text").slideUp();
+      }
+    });
+  });
+</script>
+-->

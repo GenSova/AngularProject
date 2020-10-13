@@ -1,0 +1,11 @@
+<div [ngStyle]="{'background-color':testColor}">
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<button style="position: fixed; right: 10px; top: 90px; pointer-events: none" class="btn btn-primary rounded">{{today | date}}</button>
+  <!--<div class="p-2" style="position: fixed; bottom: 30px; right: 30px; background-color: aliceblue; z-index: 1">
+    <h6>Пока что не нашел идею для применения кастомного пайпа</h6>
+<h6>Without Custom Reverse Pipe: <strong>{{"Testing string"}}</strong></h6>
+<h6>With Custom Reverse Pipe: <strong>{{"Testing string" | customReverse}}</strong></h6>
+  </div>-->
+<app-footer></app-footer>
+</div>

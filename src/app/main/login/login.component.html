@@ -1,0 +1,79 @@
+<div class="container mt-5">
+  <div style="float: left; width: 80%">
+    <div *ngIf="a == 0">
+<form class="text-center border border-light p-5" action="#!" style="width: 700px">
+  <p class="h4 mb-4">Sign in</p>
+  <!-- Email -->
+  <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+  <!-- Password -->
+  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+  <div class="d-flex justify-content-around">
+    <div>
+      <!-- Remember me -->
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+        <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+      </div>
+    </div>
+    <div>
+      <!-- Forgot password -->
+      <a style="color: #0000EE" (click)="forgot()">Forgot password?</a>
+    </div>
+  </div>
+  <!-- Sign in button -->
+  <button class="btn btn-primary my-4 rounded" type="submit">Sign in</button>
+  <!-- Register -->
+  <p>Not a member?
+    <a style="color: #0000EE" (click)="register()">Register</a>
+  </p>
+</form>
+    </div>
+    <!--Register-->
+    <div *ngIf="a == 1">
+      <form class="text-center border border-light p-5" action="#!" style="width: 700px">
+        <p class="h4 mb-4">Register</p>
+        <!-- Name -->
+        <input type="email" id="registerLoginFormName" class="form-control mb-4" placeholder="Name">
+        <!-- Surname -->
+        <input type="email" id="registerLoginFormSurname" class="form-control mb-4" placeholder="Surname">
+        <!-- Login -->
+        <input type="email" id="registerLoginFormLogin" class="form-control mb-4" placeholder="Login">
+        <!-- Email -->
+        <input type="email" id="registerLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+        <!-- Password -->
+        <input type="password" id="registerLoginFormPassword" class="form-control mb-4" placeholder="Password">
+        <!-- Password -->
+        <input type="password" id="registerLoginFormRePassword" class="form-control mb-4" placeholder="Confirm Password">
+        <div class="d-flex justify-content-around">
+          <div>
+          </div>
+        </div>
+        <!-- Register button -->
+        <button class="btn btn-primary my-4 rounded" type="submit">Register</button>
+        <div>
+          <!-- Sign in -->
+          <a style="color: #0000EE" (click)="login()">Sign in</a>
+        </div>
+      </form>
+    </div>
+    <!--Forgot-->
+    <div *ngIf="a == 2">
+      <form class="text-center border border-light p-5" action="#!" style="width: 700px">
+        <p class="h4 mb-4">Recover password</p>
+        <!-- Email -->
+        <input type="email" id="recoverLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+        <div class="d-flex justify-content-around">
+          <div>
+          </div>
+        </div>
+        <!-- Sign in button -->
+        <button class="btn btn-primary my-4 rounded" type="submit">Recover</button>
+        <div>
+          <!-- Sign in -->
+          <a style="color: #0000EE" (click)="login()">Sign in</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <app-categories style="width: 20%"></app-categories>
+</div>

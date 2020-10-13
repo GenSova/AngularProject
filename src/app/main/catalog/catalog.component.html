@@ -1,0 +1,9 @@
+<div class="container mt-5">
+  <div style="float: left; width: 80%">
+      <h2>Games &darr;  <button class="btn btn-outline-danger ml-4 p-2 rounded">Favorites: {{Counter}}</button></h2>
+  <div style="float: left;">
+    <app-card [count]=Counter (countChanged)="countChangedHandler($event)"></app-card>
+  </div>
+  </div>
+  <app-categories style="width: 20%"></app-categories>
+</div>

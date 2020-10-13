@@ -1,0 +1,9 @@
+.game-image {
+  width: 330px;
+  height: 250px;
+}
+
+.column {
+  padding: 5px;
+  float: left;
+}

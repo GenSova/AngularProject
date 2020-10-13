@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background: #2A2E49">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand text-white p-0" href="/"><img style="width: 100px; height: 70px; margin-top: -10px" class="p-0" src="https://i.ibb.co/5Bjs511/68bbbac9-2135-4bfa-9218-37bb6deaaec4-200x200.png"></a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link text-white" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/news">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/contacts">Contacts</a>
+      </li>
+      <li>
+      <form class="form-inline my-2 my-lg-0 ml-4">
+        <input (click)="a = 1" [(ngModel)]="searchText" class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary my-0 rounded" type="submit">Search</button>
+
+        <div class="border border-primary rounded" *ngIf="a == 1" style="position: absolute; left: 343px; top: 60px; background-color: white; z-index: 1">
+          <table class="table table-bordered table-striped mb-0" style="width: 224px">
+            <button (click)="a = 0"  class="btn btn-outline-primary p-1" style="position: absolute; left: 160px; top: 5px">Close</button>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Game Title</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let element of Games | filter:searchText">
+                <td>{{element.id}}</td>
+                <td><a href="/product">{{element.name}}</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+      </li>
+    </ul>
+    <!--<form class="form-inline my-2 my-lg-0">-->
+      <!--<button class="btn btn-outline-danger">Favorites: {{ClickCounter}}</button>-->
+    <a href="/login"><button class="btn btn-outline-primary my-2 my-sm-0 ml-2 rounded" type="submit"><img style="width: 30px; height: 30px" src="https://www.iconfinder.com/data/icons/online-marketing-double-color-black-and-red-vol-4/52/target__boss__user__customer__marketing__targetuser__aim-512.png"></button></a>
+    <!--</form>-->
+    <!--
+    <div *ngIf="a == false">
+    <button class="btn btn-success" [directiveListen]='counter' (click)='login()'>Log in</button>
+    <button class="btn btn-warning" [directiveListen]='counter' (click)='logout()'>Log out</button>
+    <button class="btn btn-danger" (click)="destroyer()">Destroy login system!</button>
+    </div>
+    <div *ngIf="a == true" >
+    <button class="btn btn-danger">Destroyed</button>
+      <button (click)="destroyed()" class="btn btn-success">Recover</button>
+    </div>
+    -->
+  </div>
+</nav>

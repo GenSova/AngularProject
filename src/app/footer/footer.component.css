@@ -1,0 +1,10 @@
+footer {
+  background-color: #2A2E49;
+  clear: both;
+  position: relative;
+  margin-top: 100px;
+}
+.gototop {
+  right: 0;
+  padding-right: 0;
+}

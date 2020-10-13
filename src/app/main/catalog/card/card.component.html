@@ -1,0 +1,8 @@
+<div *ngFor="let element of Games; let i = index" class="" style="width: 165px; float: left; margin-right: 30px; margin-top: 30px">
+  <a href="/product"><img class="card-img-top rounded" style="width: 165px; height: 234px" src="https://cdn.tutsplus.com/psd/uploads/legacy/psdtutsarticles/linkb_60vgamecovers/44.jpg" alt="Card image cap">
+  </a>
+    <div class="" style="text-align: center">
+      <a href="/product" class="btn btn-link p-0 m-3">{{element.name}}</a><br>
+      <button class="btn btn-outline-primary p-2 rounded" (click)="increment()" id="{{i}}" style="font-size: 14px; text-transform: none;">{{fav | uppercase}}</button>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+#text{
+  display:none;
+}
+.btn-container{
+  margin: auto;
+  height:44px;
+  width:166.23px;
+
+}
+a:active{
+  color:#ffd323;
+}
+body{
+  background-color:aqua;
+}
+button{
+  user-select:none;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  cursor:pointer;
+  border:none;
+  padding:8px;
+  font-size:14px;
+  box-sizing:border-box;
+}
