@@ -3,6 +3,7 @@
   </a>
     <div class="" style="text-align: center">
       <a href="/product" class="btn btn-link p-0 m-3">{{element.name}}</a><br>
-      <button class="btn btn-outline-primary p-2 rounded" (click)="increment()" id="{{i}}" style="font-size: 14px; text-transform: none;">{{fav | uppercase}}</button>
+      <button *ngIf="a == 0 || a != i+1" class="btn btn-outline-primary p-2 rounded" (click)="increment(i)" id="" style="font-size: 14px; text-transform: none;">{{fav | uppercase}}</button>
+      <button *ngIf="a == i+1" class="btn btn-outline-warning p-2 rounded" (click)="increment(i)" id="" style="font-size: 14px; text-transform: none;">{{rmfav | uppercase}}</button>
   </div>
 </div>
