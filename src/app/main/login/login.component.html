@@ -1,12 +1,18 @@
 <div class="container mt-5">
   <div style="float: left; width: 80%">
     <div *ngIf="a == 0">
-<form class="text-center border border-light p-5" action="#!" style="width: 700px">
+<form class="text-center border border-light p-5" style="width: 700px" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
   <p class="h4 mb-4">Sign in</p>
   <!-- Email -->
-  <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+<!--  <span *ngIf="email.valid">Validation: <b style="color: green">true</b></span>-->
+<!--  <span *ngIf="email.invalid">Validation: <b style="color: red">false</b></span>-->
+  <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="email" ngModel required #email="ngModel" email>
+  <span *ngIf="email.invalid && email.touched" class="error">E-mail is required!</span>
   <!-- Password -->
-  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+<!--  <span *ngIf="password.valid">Validation: <b style="color: green">true</b></span>-->
+<!--  <span *ngIf="password.invalid">Validation: <b style="color: red">false</b></span>-->
+  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" name="password" ngModel required #password="ngModel">
+  <span *ngIf="password.invalid && password.touched" class="error">Password is required!</span>
   <div class="d-flex justify-content-around">
     <div>
       <!-- Remember me -->
@@ -33,17 +39,35 @@
       <form class="text-center border border-light p-5" action="#!" style="width: 700px">
         <p class="h4 mb-4">Register</p>
         <!-- Name -->
-        <input type="email" id="registerLoginFormName" class="form-control mb-4" placeholder="Name">
+<!--        <span *ngIf="name.valid">Validation: <b style="color: green">true</b></span>-->
+<!--        <span *ngIf="name.invalid">Validation: <b style="color: red">false</b></span>-->
+        <input type="text" id="registerLoginFormName" class="form-control mb-4" placeholder="Name" name="name" ngModel required #name="ngModel">
+        <span *ngIf="name.invalid && name.touched" class="error">Name is required!</span>
         <!-- Surname -->
-        <input type="email" id="registerLoginFormSurname" class="form-control mb-4" placeholder="Surname">
+<!--        <span *ngIf="surname.valid">Validation: <b style="color: green">true</b></span>-->
+<!--        <span *ngIf="surname.invalid">Validation: <b style="color: red">false</b></span>-->
+        <input type="text" id="registerLoginFormSurname" class="form-control mb-4" placeholder="Surname" name="surname" ngModel required #surname="ngModel">
+        <span *ngIf="surname.invalid && surname.touched" class="error">Surname is required!</span>
         <!-- Login -->
-        <input type="email" id="registerLoginFormLogin" class="form-control mb-4" placeholder="Login">
+<!--        <span *ngIf="login.valid">Validation: <b style="color: green">true</b></span>-->
+<!--        <span *ngIf="login.invalid">Validation: <b style="color: red">false</b></span>-->
+        <input type="text" id="registerLoginFormLogin" class="form-control mb-4" placeholder="Login" name="login" ngModel required #login="ngModel">
+        <span *ngIf="login.invalid && login.touched" class="error">Login is required!</span>
         <!-- Email -->
-        <input type="email" id="registerLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+<!--        <span *ngIf="email.valid">Validation: <b style="color: green">true</b></span>-->
+<!--        <span *ngIf="email.invalid">Validation: <b style="color: red">false</b></span>-->
+        <input type="email" id="registerLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="email" ngModel required #email="ngModel" email>
+        <span *ngIf="email.invalid && email.touched" class="error">Password is required!</span>
         <!-- Password -->
-        <input type="password" id="registerLoginFormPassword" class="form-control mb-4" placeholder="Password">
+<!--        <span *ngIf="password.valid">Validation: <b style="color: green">true</b></span>-->
+<!--        <span *ngIf="password.invalid">Validation: <b style="color: red">false</b></span>-->
+        <input type="password" id="registerLoginFormPassword" class="form-control mb-4" placeholder="Password" name="password" ngModel required #password="ngModel">
+        <span *ngIf="password.invalid && password.touched" class="error">Password is required!</span>
         <!-- Password -->
-        <input type="password" id="registerLoginFormRePassword" class="form-control mb-4" placeholder="Confirm Password">
+<!--        <span *ngIf="repassword.valid">Validation: <b style="color: green">true</b></span>-->
+<!--        <span *ngIf="repassword.invalid">Validation: <b style="color: red">false</b></span>-->
+        <input type="password" id="registerLoginFormRePassword" class="form-control mb-4" placeholder="Confirm Password" name="repassword" ngModel required #repassword="ngModel">
+        <span *ngIf="repassword.invalid && repassword.touched" class="error">Repassword is required!</span>
         <div class="d-flex justify-content-around">
           <div>
           </div>
@@ -52,7 +76,7 @@
         <button class="btn btn-primary btn-md my-4 rounded" type="submit">Register</button>
         <div>
           <!-- Sign in -->
-          <a style="color: #0000EE" (click)="login()">Sign in</a>
+          <a style="color: #0000EE" (click)="log()">Sign in</a>
         </div>
       </form>
     </div>
@@ -61,7 +85,10 @@
       <form class="text-center border border-light p-5" action="#!" style="width: 700px">
         <p class="h4 mb-4">Recover password</p>
         <!-- Email -->
-        <input type="email" id="recoverLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+<!--        <span *ngIf="email.valid">Validation: <b style="color: green">true</b></span>-->
+<!--        <span *ngIf="email.invalid">Validation: <b style="color: red">false</b></span>-->
+        <input type="email" id="recoverLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="email" ngModel required #email="ngModel" email>
+        <span *ngIf="email.invalid && email.touched" class="error">E-mail is required!</span>
         <div class="d-flex justify-content-around">
           <div>
           </div>
@@ -70,10 +97,10 @@
         <button class="btn btn-primary btn-md my-4 rounded" type="submit">Recover</button>
         <div>
           <!-- Sign in -->
-          <a style="color: #0000EE" (click)="login()">Sign in</a>
+          <a style="color: #0000EE" (click)="log()">Sign in</a>
         </div>
       </form>
     </div>
   </div>
-  <app-categories style="width: 20%"></app-categories>
+  <app-categories-list style="width: 20%"></app-categories-list>
 </div>

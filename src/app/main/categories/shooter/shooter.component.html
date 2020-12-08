@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <div style="float: left; width: 80%">
+    <h2>Shooter Games &darr;  <button class="btn btn-outline-danger ml-4 p-2 rounded">Favorites: {{Counter}}</button></h2>
+    <div style="float: left;">
+      <div *ngFor="let element of gamecard$.slice(5, 10); let i = index" class="" style="width: 165px; float: left; margin-right: 30px; margin-top: 30px">
+        <a href="/product" [routerLink]="['/product/'+element.id]"><img class="card-img-top rounded" style="width: 165px; height: 234px" src="{{element.image}}" alt="Card image cap">
+        </a>
+        <div class="" style="text-align: center">
+          <a href="/product" [routerLink]="['/product/'+element.id]" class="btn btn-link p-0 m-3">{{element.name}}</a><br>
+          <button class="btn btn-outline-primary p-2 rounded" id="{{i}}" style="font-size: 14px; text-transform: none;">{{fav | uppercase}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-categories-list style="width: 20%"></app-categories-list>
+</div>

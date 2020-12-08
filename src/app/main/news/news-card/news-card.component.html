@@ -1,6 +1,6 @@
-<div class="mt-4 pt-5" *ngFor="let element of News; let i = index">
+<div class="mt-4 pt-5" *ngFor="let element of newsCard$; let i = index">
 <h2 align="center" class="mb-4"><strong>{{element.name}}</strong></h2>
-<img style="display: block; margin-left: auto; margin-right: auto; width: 50%;" src="https://skidrowcodex.co/uploads/imgtorrent/gamespc/ea/1601197490_prodeus.jpg"><br>
+<img style="display: block; margin-left: auto; margin-right: auto; width: 50%;" src="{{element.image}}"><br>
 
   <div *ngIf="a == 0 || a != i+1">
     {{element.description}}

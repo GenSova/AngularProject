@@ -18,6 +18,18 @@ import { CustomReversePipe } from './custom-reverse.pipe';
 import { LoginComponent } from './main/login/login.component';
 import { ProductComponent } from './main/catalog/product/product.component';
 
+import { ShowArrayService } from './show-array.service';
+import { ProductViewComponent } from './main/product-view/product-view.component';
+import {DeactivateGuard} from './guards/deactivate.guard';
+import {ActivateGuard} from './guards/activate.guard';
+import {ResolverService} from './guards/resolver.service';
+import {Game} from './models/game.model';
+import {HttpClientModule} from '@angular/common/http';
+import {DataService} from './data.service';
+import { CategoriesListComponent } from './main/categories/categories-list/categories-list.component';
+import { PlatformerComponent } from './main/categories/platformer/platformer.component';
+import { ShooterComponent } from './main/categories/shooter/shooter.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,14 +46,19 @@ import { ProductComponent } from './main/catalog/product/product.component';
     CustomReversePipe,
     LoginComponent,
     ProductComponent,
+    ProductViewComponent,
+    CategoriesListComponent,
+    PlatformerComponent,
+    ShooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ShowArrayService, DeactivateGuard, ActivateGuard, ResolverService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -24,9 +24,12 @@
       <div *ngIf="a == 1" class="ml-5 mr-5">
         <form #form method="post" action="https://formspree.io/f/mvovznrn" class="text-center border border-light p-4">
           <!-- Email -->
-          <input name="_replyto" type="email" class="form-control mb-4" placeholder="E-mail">
+          <input name="_replyto" type="email" class="form-control mb-4" placeholder="E-mail" ngModel required #_replyto="ngModel" email>
+          <span *ngIf="_replyto.invalid && _replyto.touched" class="error">E-mail is required!</span>
           <!-- Message -->
-          <textarea name="message" class="form-control mb-4" placeholder="Your message"></textarea>
+          <textarea name="message" class="form-control mb-4" placeholder="Your message" ngModel required #message="ngModel">
+          </textarea>
+          <span *ngIf="message.invalid && message.touched" class="error">Message is required!</span><br>
           <!-- Sign in button -->
           <button class="btn btn-primary btn-md mt-2 mr-5 mb-4 rounded" type="reset">Reset</button>
           <button class="btn btn-primary btn-md mt-2 mb-4 rounded" type="submit" value="submit" (click)="form.submit()">Send</button><br>
@@ -35,5 +38,5 @@
       </div>
     </div>
   </div>
-  <app-categories style="width: 20%"></app-categories>
+  <app-categories-list style="width: 20%"></app-categories-list>
 </div>

@@ -1,42 +1,49 @@
 import { Component, OnInit } from '@angular/core';
+import { ShowArrayService } from '../../../show-array.service';
+import {ActivatedRoute} from '@angular/router';
+import { Game } from '../../../models/game.model';
+import {DataService} from '../../../data.service';
+import {Comment} from '../../../models/comment.model';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  providers: [ShowArrayService]
 })
 export class ProductComponent implements OnInit {
+  games$: Game[];
+  comments$: Comment[];
+
+  id = this.route.snapshot.params['id'];
+  gameInfo: any;
+
   now: string;
   today: number = Date.now();
   newName: string;
   newComment: string;
-  comments = [
-    {name: 'Testing Name', review: 'Testing comment'}
-  ];
-  Games = [
-    {id: 1, name: 'Crysis'},
-    {id: 2, name: 'Wolfenstein'},
-    {id: 3, name: 'Far Cry'},
-    {id: 4, name: 'Dark Souls'},
-    {id: 5, name: 'Spider-Man'},
-    {id: 6, name: 'Batman Begins'},
-    {id: 7, name: 'Dark Souls II'},
-    {id: 8, name: 'Dark Souls III'},
-    {id: 9, name: 'Read Dead Redemption II'},
-    {id: 10, name: 'GTA V'},
-  ];
+  Comments;
+  Games;
 
-  constructor() {
+  constructor(private showArrayService: ShowArrayService, private route: ActivatedRoute, private dataService: DataService) {
     setInterval(() => {
       this.now = new Date().toString().split(' ')[4];
     }, 1);
+    this.Games = showArrayService.getGamesArray();
+    this.Comments = showArrayService.getCommentsArray();
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.dataService.getGames()
+      .subscribe(data => this.games$ = data);
+    this.dataService.getComments()
+      .subscribe(data => this.comments$ = data);
+    this.dataService.getGamesInfo(this.id)
+      .subscribe(data => this.gameInfo = data);
+    console.log(this.gameInfo);
   }
   addReview(newName, newComment) {
-    this.comments.unshift({name: newName, review: newComment});
+    this.comments$.unshift({name: newName, review: newComment});
     return false;
   }
-
 }

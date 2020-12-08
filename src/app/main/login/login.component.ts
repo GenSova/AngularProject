@@ -5,10 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   a = 0;
 
-  login() {
+  log() {
     this.a = 0;
   }
   register() {
@@ -19,8 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   constructor() { }
-
-  ngOnInit(): void {
+  onSubmit(data){
+    console.warn(data);
   }
-
 }

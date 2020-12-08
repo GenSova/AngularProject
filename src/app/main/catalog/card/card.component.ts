@@ -1,11 +1,18 @@
 import {Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges, OnDestroy } from '@angular/core';
+import { ShowArrayService } from '../../../show-array.service';
+import {Game} from '../../../models/game.model';
+import {ActivatedRoute} from '@angular/router';
+import {DataService} from '../../../data.service';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  styleUrls: ['./card.component.css'],
+  providers: [ShowArrayService]
 })
 export class CardComponent implements OnChanges {
+  gamecard$: Game[];
+  Games;
   fav = "Add to favorites";
   rmfav = "Remove from fav"
   clicked = [];
@@ -13,7 +20,11 @@ export class CardComponent implements OnChanges {
   @Input() count: number;
 
   @Output() countChanged: EventEmitter<number> =   new EventEmitter();
-  constructor() { }
+
+  constructor(private showArrayService: ShowArrayService, private dataService: DataService) {
+  this.Games = showArrayService.getGamesArray();
+  }
+
   increment(i: number): void {
     if (i in this.clicked){
       this.count--;
@@ -29,6 +40,7 @@ export class CardComponent implements OnChanges {
       this.a = i + 1;
     }
   }
+  /*
   Games = [
     { id: 1, name: 'Crysis' },
     { id: 2, name: 'Wolfenstein' },
@@ -40,8 +52,10 @@ export class CardComponent implements OnChanges {
     { id: 8, name: 'Dark Souls III' },
     { id: 9, name: 'Sekiro: SDT' },
     { id: 10, name: 'GTA V' },
-  ];
-  ngOnInit(): void {
+  ];*/
+  ngOnInit() {
+    return this.dataService.getGames()
+      .subscribe(data => this.gamecard$ = data);
   }
   ngOnChanges(changes: SimpleChanges){
     if (this.count != 0) {

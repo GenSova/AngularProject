@@ -3,16 +3,16 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand text-white p-0" href="/"><img style="width: 100px; height: 70px; margin-top: -10px" class="p-0" src="https://i.ibb.co/5Bjs511/68bbbac9-2135-4bfa-9218-37bb6deaaec4-200x200.png"></a>
+    <a class="navbar-brand text-white p-0" href="/" routerLink=""><img style="width: 100px; height: 70px; margin-top: -10px" class="p-0" src="https://i.ibb.co/5Bjs511/68bbbac9-2135-4bfa-9218-37bb6deaaec4-200x200.png"></a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link text-white" href="/">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/" routerLink="">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="/news">News</a>
+        <a class="nav-link text-white" href="/news" routerLink="news">News</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="/contacts">Contacts</a>
+        <a class="nav-link text-white" href="/contacts" routerLink="contacts">Contacts</a>
       </li>
       <li>
       <form class="form-inline my-2 my-lg-0 ml-4">
@@ -29,9 +29,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let element of Games | filter:searchText">
+              <tr *ngFor="let element of games$ | filter:searchText">
                 <td>{{element.id}}</td>
-                <td><a href="/product">{{element.name}}</a></td>
+                <td><a href="/product" [routerLink]="['/product/'+element.id]">{{element.name}}</a></td>
               </tr>
             </tbody>
           </table>
@@ -41,7 +41,7 @@
     </ul>
     <!--<form class="form-inline my-2 my-lg-0">-->
       <!--<button class="btn btn-outline-danger">Favorites: {{ClickCounter}}</button>-->
-    <a href="/login"><button class="btn btn-outline-primary my-2 my-sm-0 ml-2 rounded" type="submit"><img style="width: 30px; height: 30px" src="https://www.iconfinder.com/data/icons/online-marketing-double-color-black-and-red-vol-4/52/target__boss__user__customer__marketing__targetuser__aim-512.png"></button></a>
+    <a href="/login" routerLink="login"><button class="btn btn-outline-primary my-2 my-sm-0 ml-2 rounded" type="submit"><img style="width: 30px; height: 30px" src="assets/user.jpg"></button></a>
     <!--</form>-->
     <!--
     <div *ngIf="a == false">
